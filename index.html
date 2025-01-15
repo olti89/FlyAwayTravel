@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlyAway Travel</title>
+    <link rel="stylesheet" href="style.css">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+</head>
+
+<body>
+
+
+
+    <!-- Nav-->
+    <nav class="navbar navbar-expand-lg" id="navbar">
+        <div class="container">
+
+            <a class="navbar-brand" href="index.html" id="logo"><span id="travel">F</span>lyAway</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span><i class="fa-solid fa-bars"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mynavbar">
+
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#book">Book</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#packages">Packages</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallary">Gallary</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="logo-container">
+                <img src="./images/logo.png" alt="Logo" class="navbar-logo">
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Home Page -->
+
+    <div class="home">
+        <div class="content">
+            <h5>Welcome To FlyAway Travel</h5>
+            <h1>Visit <span class="changecontent"></span></h1>
+            <p><span>The world is waiting — let us take you there</span> </p>
+            <a href="#book">Book Place</a>
+        </div>
+    </div>
+
+
+
+
+    <!-- Booking -->
+    <section class="book" id="book">
+
+        <div class="book-img">
+            <img src="./images/book2.jpg" alt="">
+        </div>
+        <div class="main-txt">
+            <h1><span>B</span>OOK</h1>
+        </div>
+        <div class="book-form">
+            <form action="" onsubmit="return validateform()">
+                <input type="text" id="destination" placeholder="Where To" list="countries" required>
+                <datalist id="countries">
+                    <option value="Maldives"></option>
+                    <option value="France"></option>
+                    <option value="Italy"></option>
+                    <option value="Spain"></option>
+                    <option value="United States"></option>
+                    <option value="China"></option>
+                    <option value="India"></option>
+                    <option value="Mexico"></option>
+                    <option value="Germany"></option>
+                    <option value="United Kingdom"></option>
+                </datalist>
+                <input type="number" placeholder="How Many People" required>
+                <input type="email" id="email" placeholder="Enter Your E-mail address" required>
+                <label for="Departure-date">Departure date</label>
+                <input type="date" id="departure-date" placeholder="Arrivals" required>
+                <label for="Return-date">Return date</label>
+                <input type="date" id="return-date" placeholder="Leaving" required> <textarea name="" id="comment"
+                    cols="5" rows="5" placeholder="Enter Your Name & Details" required></textarea>
+                <input type="submit" value="Book Now" class="submit" required>
+            </form>
+        </div>
+
+    </section>
+    <script>
+        function validateform() {
+            let emailElement = document.getElementById('email');
+            let email = emailElement.value;
+
+            let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert("Please enter a valid email address");
+                emailElement.focus(); // Corrected focus
+                return false;
+            }
+
+
+
+
+            let commentElement = document.getElementById('comment');
+            let comment = commentElement.value;
+
+            if (comment.length < 30) {
+                alert("Please enter a paragraph with at least 30 characters.");
+                commentElement.focus();
+                return false;
+            }
+
+            const departureDateElement = document.getElementById("departure-date");
+            const returnDateElement = document.getElementById("return-date");
+
+            const departureDate = new Date(departureDateElement.value);
+            const returnDate = new Date(returnDateElement.value);
+
+            // data e nisjes dhe kthimit
+            if (returnDate <= departureDate) {
+                alert("Return date must be after the departure date.");
+                returnDateElement.focus();
+                return false;
+            }
+
+
+
+
+            return true;
+
+
+
+
+
+        }
+
+
+
+    </script>
+
+
+
+    <!-- Packages Ofertat -->
+    <section class="packages" id="packages">
+        <div class="container">
+            <div class="main-txt">
+                <h1><span>P</span>ACKAGES</h1>
+            </div>
+
+            <div class="row" style="margin-top: 30px;">
+                <div class="col-md-4 py-3 py-md-0">
+                    <div class="card">
+                        <img src="./images/uk.png" alt="">
+                        <div class="card-body">
+                            <h3>United Kingdom</h3>
+                            <p>"Explore the charm of castles, cobblestone streets, and timeless traditions in the UK"
+                            </p>
+                            <div class="start">
+                                <i class="fa-solid fa-star checked"></i>
+                                <i class="fa-solid fa-star checked"></i>
+                                <i class="fa-solid fa-star checked"></i>
+                                <i class="fa-solid fa-star checked"></i>
+                                <i class="fa-solid fa-star "></i>
+                            </div>
+                            <h6>Price: <strong>$600</strong></h6>
+                            <a href="#book">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 py-3 py-md-0">
+                    <div class="card">
+                        <img src="./images/france.png" alt="">
+                        <div class="card-body">
+                            <h3>France</h3>
+                            <p>"Experience the romance, art, and culinary delights of France—your dream escape awaits."
+                            </p>
+                            <div class="start">
+                                <i class="fa-solid fa-star checked"></i>
+                                <i class="fa-solid fa-star checked"></i>
+                                <i class="fa-solid fa-star checked"></i>
+                                <i class="fa-solid fa-star checked"></i>
+                                <i class="fa-solid fa-star checked "></i>
+                            </div>
+                            <h6>Price: <strong>$500</strong></h6>
+                            <a href="#book">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 py-3 py-md-0">
+                    <div class="card">
+                        <img src="./images/g7.jpg" alt="">
+                        <div class="card-body">
+                            <h3>Maldives</h3>
+                            <p>"The Maldives: A tropical paradise of turquoise waters, white sandy beaches, and vibrant
+                                coral reefs."</p>
+                            <div class="start">
+                                <i class="fa-solid fa-star checked"></i>
+                                <i class="fa-solid fa-star checked"></i>
+                                <i class="fa-solid fa-star checked"></i>
+                                <i class="fa-solid fa-star checked "></i>
+                                <i class="fa-solid fa-star "></i>
+                            </div>
+                            <h6>Price: <strong>$800</strong></h6>
+                            <a href="#book">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 30px;">
+                <div class="col-md-4 py-3 py-md-0">
+                    <div class="card">
+                        <img src="./images/italy.png" alt="">
+                        <div class="card-body">
+                            <h3>Italy</h3>
+                            <p>"Indulge in the art, history, and flavors of Italy—La Dolce Vita awaits you."</p>
+                            <div class="start">
+                                <i class="fa-solid fa-star checked"></i>
+                                <i class="fa-solid fa-star checked"></i>
+                                <i class="fa-solid fa-star checked"></i>
+                                <i class="fa-solid fa-star checked"></i>
+                                <i class="fa-solid fa-star checked"></i>
+                            </div>
+                            <h6>Price: <strong>$500</strong></h6>
+                            <a href="#book">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 py-3 py-md-0">
+                    <div class="card">
+                        <img src="./images/india.png" alt="">
+                        <div class="card-body">
+                            <h3>India</h3>
+                            <p>"Immerse yourself in the colors, spices, and spirituality of incredible India."</p>
+                            <div class="start">
+                                <i class="fa-solid fa-star checked"></i>
+                                <i class="fa-solid fa-star checked"></i>
+                                <i class="fa-solid fa-star checked"></i>
+                                <i class="fa-solid fa-star "></i>
+                                <i class="fa-solid fa-star "></i>
+                            </div>
+                            <h6>Price: <strong>$300</strong></h6>
+                            <a href="#book">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 py-3 py-md-0">
+                    <div class="card">
+                        <img src="./images/us.png" alt="">
+                        <div class="card-body">
+                            <h3>United States</h3>
+                            <p>From bustling cities to natural wonders, the USA offers adventures for every traveler."
+                            </p>
+                            <div class="start">
+                                <i class="fa-solid fa-star checked"></i>
+                                <i class="fa-solid fa-star checked"></i>
+                                <i class="fa-solid fa-star checked"></i>
+                                <i class="fa-solid fa-star checked"></i>
+                                <i class="fa-solid fa-star "></i>
+                            </div>
+                            <h6>Price: <strong>$500</strong></h6>
+                            <a href="#book">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+
+
+
+    <!-- Service -->
+
+    <section class="services" id="services">
+        <div class="container">
+            <div class="main-txt" style="padding-top: 10px;">
+                <h1><span>S</span>ervice</h1>
+
+            </div>
+            <div class="row" style="margin-top: 30px;">
+                <div class="col-md-4 py-3 py-md-0">
+                    <div class="card">
+                        <i class="fas fa-hotel"></i>
+                        <div class="card-body text-center">
+                            <h3>Affordable Hotel</h3>
+                            <p>Stay in comfort without breaking the bank—affordable hotels for every traveler.</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-4 py-3 py-md-0">
+                    <div class="card">
+                        <i class="fas fa-utensils"></i>
+                        <div class="card-body text-center">
+                            <h3>Food And Drinks</h3>
+                            <p>Savor local flavors and global delicacies with our curated dining experiences.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 py-3 py-md-0">
+                    <div class="card">
+                        <i class="fas fa-bullhorn"></i>
+                        <div class="card-body text-center">
+                            <h3>Safty Guide</h3>
+                            <p>Travel with peace of mind—your safety is our top priority.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row" style="margin-top: 30px;">
+                <div class="col-md-4 py-3 py-md-0">
+                    <div class="card">
+                        <i class="fas fa-globe-asia"></i>
+                        <div class="card-body text-center">
+                            <h3>Around The World</h3>
+                            <p> Explore the globe one unforgettable destination at a time.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 py-3 py-md-0">
+                    <div class="card">
+                        <i class="fas fa-plane"></i>
+                        <div class="card-body text-center">
+                            <h3>Fastest Travel</h3>
+                            <p>Get there quicker and easier with our seamless travel solutions. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 py-3 py-md-0">
+                    <div class="card">
+                        <i class="fas fa-hiking"></i>
+                        <div class="card-body text-center">
+                            <h3>Adventures</h3>
+                            <p>Turn your trips into thrilling stories with our handpicked adventures.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- Gallery Albumi me foto  -->
+    <section class="gallary" id="gallary">
+        <div class="container">
+            <div class="main-txt" style="padding-top: 10px;">
+                <h1><span>G</span>allary</h1>
+            </div>
+            <div class="row" style="margin-top: 30px;">
+                <div class="col-md-4 py-3 py-md-0">
+                    <div class="card">
+                        <img src="./images/g1.png" alt="" height="230px">
+                    </div>
+                </div>
+                <div class="col-md-4 py-3 py-md-0">
+                    <div class="card">
+                        <img src="./images/g2.png" alt="" height="230px">
+                    </div>
+                </div>
+                <div class="col-md-4 py-3 py-md-0">
+                    <div class="card">
+                        <img src="./images/g3.png" alt="" height="230px">
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 30px;">
+                <div class="col-md-4 py-3 py-md-0">
+                    <div class="card">
+                        <img src="./images/g4.png" alt="" height="230px">
+                    </div>
+                </div>
+                <div class="col-md-4 py-3 py-md-0">
+                    <div class="card">
+                        <img src="./images/g5.png" alt="" height="230px">
+                    </div>
+                </div>
+                <div class="col-md-4 py-3 py-md-0">
+                    <div class="card">
+                        <img src="./images/g6.png" alt="" height="230px">
+                    </div>
+                </div>
+                <div class="col-md-4 py-3 py-md-0">
+                    <div class="card">
+                        <img src="./images/g77.jpg" alt="" height="230px">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- About  us -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="main-txt" style="padding-top: 10px;">
+                <h1><span>About</span> Us</h1>
+            </div>
+            <div class="row" style="margin-top: 50px;">
+                <div class="col-md-6 py-3 py-md-0">
+                    <div class="card">
+                        <img src="./images/about-img.png" alt="">
+                    </div>
+                </div>
+
+                <div class="col-md-6 py-3 py-md-0">
+                    <h2>How Travel Agencies Work</h2>
+                    <p id="summary-content">
+                        Traveling can be one of the most enriching experiences, but planning a trip can sometimes feel
+                        overwhelming. That’s where a travel agency steps in to simplify the process and make your
+                        journey seamless and memorable.
+                    </p>
+                    <div id="full-content" style="display: none;">
+                        <p>
+                            Here’s a glimpse into how a travel agency works to transform your dream trips into reality:
+                        </p>
+                        <p>
+                            1. <strong>Understanding Your Needs</strong><br>
+                            A travel agency begins by understanding your preferences—whether you’re looking for a luxury
+                            escape, a budget-friendly adventure, or a family holiday. By assessing your travel goals,
+                            budget, and interests, the agency ensures a personalized approach to your journey.
+                        </p>
+                        <p>
+                            2. <strong>Planning and Booking</strong><br>
+                            From selecting destinations to booking flights, hotels, and activities, travel agencies
+                            handle it all. They leverage their partnerships with airlines, resorts, and tour operators
+                            to secure the best deals and exclusive offers for you.
+                        </p>
+                        <p>
+                            3. <strong>Providing Expert Advice</strong><br>
+                            Travel agents are seasoned experts who provide insider tips about your chosen destination.
+                            From cultural nuances to local hotspots, they equip you with the knowledge to make the most
+                            of your trip.
+                        </p>
+                        <p>
+                            4. <strong>Ensuring Safety and Support</strong><br>
+                            A reliable travel agency ensures your safety by offering insurance options and providing
+                            24/7 support in case of emergencies. Whether it’s flight delays or itinerary changes,
+                            they’ve got you covered.
+                        </p>
+                        <p>
+                            5. <strong>Saving Time and Money</strong><br>
+                            By streamlining the entire process, travel agencies save you the hassle of researching and
+                            booking everything yourself. Their industry expertise often means access to deals that
+                            aren’t available to the public.
+                        </p>
+                        <p>
+                            <strong>Why Choose Us?</strong><br>
+                            At FlyAway Travel, we go the extra mile to craft unforgettable journeys tailored just for
+                            you. Whether you're planning a relaxing getaway or an adventurous expedition, we're here to
+                            make it happen effortlessly.
+                        </p>
+                    </div>
+                    <button id="about-btn">Read More...</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- javascript per read more -->
+    <script>
+        const button = document.getElementById("about-btn");
+        const fullContent = document.getElementById("full-content");
+
+
+        fullContent.style.display = "none";
+
+        button.addEventListener("click", () => {
+            if (fullContent.style.display === "none" || fullContent.style.display === "") {
+                fullContent.style.display = "block";
+                button.textContent = "Read Less...";
+            } else {
+                fullContent.style.display = "none";
+                button.textContent = "Read More...";
+            }
+        });
+    </script>
+
+
+    </div>
+    </div>
+    </div>
+    </section>
+
+
+
+
+    <!-- Footer -->
+    <footer id="footer">
+        <h1><span>F</span>lyAway Travel</h1>
+        <p>The world is waiting — let us take you there
+
+        </p>
+        <div class="social-links">
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-facebook-f"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-youtube"></i>
+            <a href="https://github.com/olti89" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-github"></i>
+            </a>
+
+        </div>
+
+        <div class="copyyright">
+            <p>&copy;Copyright @olti89 kepuskaolti@gmail.com Rights Reserved</p>
+        </div>
+
+        <button id="scrollToTopBtn">Go up</button>
+        <script>
+            const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+            // scroll up javascript
+            window.onscroll = function () {
+                if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 2000) {
+                    scrollToTopBtn.style.display = "block";
+                } else {
+                    scrollToTopBtn.style.display = "none";
+                }
+            };
+
+
+            scrollToTopBtn.onclick = function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            };
+        </script>
+    </footer>
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
